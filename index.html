@@ -1,26 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phone hunter Api</title>
     <!-- daisy ui and tailwind css link -->
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- css link -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <h1 class="mr-4 text-9xl text-pink-500 ">phone hunter api</h1>
-    </header>
-    <main>
-
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header></header>
+    <main class="mx-auto mt-5">
+      <!-----------       Search and card section----------- -->
+      <section>
+        <h1 class="text-4xl text-center font-bold pt-[120px]">
+          Search your phone
+        </h1>
+        <!----------------seaech button--------------------- -->
+        <div class="flex justify-center mt-10 gap-5">
+          <label class="input">
+            <svg
+              class="h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input type="search" id="input-field" required placeholder="Search....." />
+          </label>
+        <!------------ search button----------------------- -->
+          <button onclick="handleSearch()" class="btn bg-[#0d6efd] text-[#fff] text-lg">Search</button>
+        </div>
+        <!---------------- loding spinner --------------------- -->
+        <div class="text-center my-52 hidden" id="loading-spinner">
+          <span class="loading loading-spinner text-primary"></span>
+        </div>
+        <!---------------- card --------------------- -->
+        <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10" >
+          <!-- <div class="card bg-[#CFCFCF] w-96 shadow-sm">
+            <figure class="px-10 pt-10">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                alt="Shoes"
+                class="rounded-xl"
+              />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">Card Title</h2>
+              <p>
+                A card component has a figure, a body part, and inside body
+                there are title and actions parts
+              </p>
+              <div class="card-actions">
+                <button class="btn btn-primary">Buy Now</button>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <!-- -------------------show all button---------------------------------- -->
+        <div id="showall-container" class="text-center hidden">
+          <button  class="btn  bg-[#0d6efd] text-[#fff] ">Show All</button>
+        </div>
+        <!-- -----------------modal-------------------------------- -->
+         <div>
+          <!-- Open the modal using ID.showModal() method -->
+            <dialog id="show_datails_modal" class="modal">
+              <div class="modal-box">
+                <div id="show-details-container" class="">
+                  
+                </div>
+                <div class="modal-action">
+                  <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn bg-[#dc3545] text-sm py-[17px] px-[50px] text-[#fff] rounded-[8px]">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+         </div>
+        <!-- -------------------------------------------------------------------------- -->
+      </section>
+      <!--  -->
     </main>
-    <footer>
-
-    </footer>
+    <footer></footer>
     <!-- js script -->
-     <script src="js/phone.js"></script>
-</body>
+    <script src="js/phone.js"></script>
+  </body>
 </html>
