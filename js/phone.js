@@ -94,5 +94,8 @@ const loadingToggle = (isLoading) => {
   }
 }
 // -----------------show all button click------------------
+const showAll = ()=>{
+  loadPhoneData();
+}
 
 loadPhoneData();
